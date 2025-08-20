@@ -1,0 +1,36 @@
+@import "../../Theme.scss";
+
+.header {
+  height: 80px;
+  width: 100%;
+  background-color: var(--bg1);
+  color: var(--textColor);
+  display: flex;
+  align-items: center;
+  padding: 30px 70px;
+  transition: 0.3s ease;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  &__title p {
+    font-size: 21px;
+    font-weight: 700;
+  }
+
+  &__theme {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    &__icon {
+      display: flex;
+      align-items: center;
+    }
+
+    &__title p {
+      font-size: 16px;
+    }
+  }
+}

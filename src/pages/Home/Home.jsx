@@ -1,9 +1,16 @@
-import { useContext } from "react"
-import { ThemeContext } from "../../Context/ThemeContext"
+import Header from "../../components/Header/Header";
+import "./Home.scss";
 
-export default function Home(){
-
-    const {theme, toggleTheme} = useContext(ThemeContext)
-
-    return <h1 onClick={toggleTheme}>Teste</h1>
+export default function Home() {
+  return (
+    <div className="home">
+      <Header />
+      <div className="home__items">
+        <p className="teste"></p>
+        <p className="teste"></p>
+        <p className="teste"></p>
+        <p className="teste"></p>
+      </div>
+    </div>
+  );
 }

@@ -1,7 +1,11 @@
-[data-theme="dark"]{
-
+[data-theme="dark"] {
+  --bg1: #2b3743;
+  --textColor: #fff;
+  --bg2: #202d36;
 }
 
-[data-theme="light"]{
-    
+[data-theme="light"] {
+  --bg1: #fff;
+  --textColor: #000;
+  --bg2: #fafafa;
 }
