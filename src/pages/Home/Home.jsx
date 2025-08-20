@@ -6,10 +6,6 @@ export default function Home() {
     <div className="home">
       <Header />
       <div className="home__items">
-        <p className="teste"></p>
-        <p className="teste"></p>
-        <p className="teste"></p>
-        <p className="teste"></p>
       </div>
     </div>
   );
