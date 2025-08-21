@@ -2,7 +2,7 @@
 
 .home {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
 
@@ -38,40 +38,54 @@
           background-color: var(--bg1);
           outline: none;
           color: var(--textColor);
-          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-            0 4px 6px -4px rgb(0 0 0 / 0.1);
+          box-shadow: var(--boxShadow);
         }
       }
 
       &__filter {
-        .css-10gia0a-MuiFormControl-root {
-          margin: 0px;
-        }
-        .custom-menu .MuiMenuItem-root {
-          padding: 10px 20px;
-          margin: 0;
-          background-color: var(--bg1);
-          color: var(--textColor) !important;
-        }
-
-        .custom-menu .MuiMenuItem-root:hover {
-          background-color: var(--primary);
-        }
-
         .custom-select {
           border-radius: 10px;
           background-color: var(--bg1);
-          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-            0 4px 6px -4px rgb(0 0 0 / 0.1);
+          box-shadow: var(--boxShadow);
           color: var(--textColor);
 
           &:hover {
-            background-color: var(--bg1); 
+            background-color: var(--bg1);
           }
+        }
+      }
+    }
 
-          .MuiSelect-icon {
-            color: var(--textColor);
+    &__countrie-group {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
+      gap: 8rem;
+      justify-content: space-between;
+
+      &__countrie-item {
+        height: 430px;
+        width: 330px;
+        border-radius: 10px;
+        background-color: var(--bg1);
+        box-shadow: var(--boxShadow);
+
+        &__flag {
+          height: 218px;
+          .image {
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
           }
+        }
+        &__text {
+          gap: 20px;
+          display: flex;
+          flex-direction: column;
+          padding: 35px 30px;
+          color: var(--textColor);
         }
       }
     }

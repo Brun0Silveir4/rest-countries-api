@@ -2,10 +2,13 @@
   --bg1: #2b3743;
   --textColor: #fff;
   --bg2: #202d36;
+  --boxShadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 [data-theme="light"] {
   --bg1: #fff;
   --textColor: #000;
   --bg2: #fafafa;
+--boxShadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
+

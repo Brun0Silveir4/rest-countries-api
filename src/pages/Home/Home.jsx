@@ -4,6 +4,7 @@ import api from "../../api/api";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import FilterSelect from "../../components/FilterSelect/FilterSelect";
+import CardCountrie from "../../components/CardCountrie/CardCountrie";
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
@@ -15,7 +16,7 @@ export default function Home() {
 
   const getCountries = async () => {
     await api
-      .get("/all?fields=name,capital,population,region")
+      .get("/all?fields=name,capital,population,region,flags")
       .then((response) => setCountries(response.data));
   };
 
@@ -23,10 +24,11 @@ export default function Home() {
     getCountries();
   }, []);
 
-  useEffect(() => {
-    console.log(region)
-  }, [region])
+  console.log(countries);
 
+  useEffect(() => {
+    console.log(region);
+  }, [region]);
 
   const regions = [
     { value: "", label: "None" },
@@ -58,6 +60,19 @@ export default function Home() {
               options={regions}
             />
           </div>
+        </div>
+
+        <div className="home__items__countrie-group">
+          {countries.map((countrie, i) => (
+            <CardCountrie 
+              i={i}
+              flags={countrie.flags.png}
+              name={countrie.name.common}
+              population={countrie.population}
+              region={countrie.region}
+              capitals={countrie.capital}
+            />
+          ))}
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import Select from "@mui/material/Select";
 
 export default function FilterSelect({ value, onChange, options, label }) {
   return (
-    <FormControl sx={{ m: 1, minWidth: 200 }}>
+    <FormControl sx={{ m: 0, minWidth: 200 }}>
       <InputLabel
         sx={{
           color: "var(--textColor)",
