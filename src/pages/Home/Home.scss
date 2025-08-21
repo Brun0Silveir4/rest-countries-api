@@ -2,15 +2,78 @@
 
 .home {
   min-height: 100vh;
-  min-width: 100%;
-  position: relative;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
 
   &__items {
-    display: flex;
+    max-width: 100%;
     flex: 1 0 auto;
     background-color: var(--bg2);
     min-height: 100%;
+    padding: 40px 70px;
+
+    &__config {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__search {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .icon {
+          position: absolute;
+          left: 10px;
+          fill: var(--textColor);
+        }
+
+        .input_search {
+          font-size: 15px;
+          background: transparent;
+          border: 1px solid transparent;
+          padding: 17px 17px 17px 35px;
+          border-radius: 10px;
+          width: 435px;
+          background-color: var(--bg1);
+          outline: none;
+          color: var(--textColor);
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+            0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+      }
+
+      &__filter {
+        .css-10gia0a-MuiFormControl-root {
+          margin: 0px;
+        }
+        .custom-menu .MuiMenuItem-root {
+          padding: 10px 20px;
+          margin: 0;
+          background-color: var(--bg1);
+          color: var(--textColor) !important;
+        }
+
+        .custom-menu .MuiMenuItem-root:hover {
+          background-color: var(--primary);
+        }
+
+        .custom-select {
+          border-radius: 10px;
+          background-color: var(--bg1);
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+            0 4px 6px -4px rgb(0 0 0 / 0.1);
+          color: var(--textColor);
+
+          &:hover {
+            background-color: var(--bg1); 
+          }
+
+          .MuiSelect-icon {
+            color: var(--textColor);
+          }
+        }
+      }
+    }
   }
 }
