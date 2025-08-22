@@ -1,16 +1,15 @@
 import "./CardCountrie.scss";
 
 export default function CardCountrie({
-  i,
   flags,
   name,
   population,
   region,
   capitals,
-  code
+  onClick
 }) {
   return (
-    <div className="home__items__countrie-group__countrie-item" key={i}>
+    <div className="home__items__countrie-group__countrie-item"  onClick={onClick}>
       <div className="home__items__countrie-group__countrie-item__flag">
         <img src={flags} alt="" className="image" />
       </div>

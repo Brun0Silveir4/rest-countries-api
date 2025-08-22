@@ -2,8 +2,14 @@ import axios from "axios";
 
 const apiUrl = "https://restcountries.com/v3.1";
 
-const api = axios.create({
+const firstApi = axios.create({
   baseURL: apiUrl,
 });
 
-export default api;
+const secondUrl = "https://restcountries.com/v2";
+
+const secondApi = axios.create({
+  baseURL: secondUrl,
+});
+
+export { firstApi, secondApi };

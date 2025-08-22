@@ -1,29 +1,30 @@
 import Header from "../../components/Header/Header";
 import "./Home.scss";
-import api from "../../api/api";
+import { firstApi } from "../../api/api";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import FilterSelect from "../../components/FilterSelect/FilterSelect";
 import CardCountrie from "../../components/CardCountrie/CardCountrie";
 import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const [countries, setCountries] = useState([]);
+  const [region, setRegion] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
   const getCountries = async () => {
-    await api
+    await firstApi
       .get("/all?fields=name,capital,population,region,flags,cca3")
       .then((response) => setCountries(response.data));
   };
 
   const getCountriesByRegion = async (region) => {
-    await api
+    await firstApi
       .get(`/region/${region}?fields=name,capital,population,region,flags,cca3`)
       .then((response) => setCountries(response.data));
   };
-
-  const [countries, setCountries] = useState([]);
-  const [region, setRegion] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -35,8 +36,11 @@ export default function Home() {
     countrie.name.common.toLowerCase().includes(search.toLowerCase())
   );
 
+  let navigate = useNavigate();
 
-  console.log(filteredCountries);
+  const goTo = (url) => {
+    navigate(`/countrie/${url}`);
+  };
 
   const handleChange = (e) => {
     setRegion(e.target.value);
@@ -99,18 +103,18 @@ export default function Home() {
             ) : (
               filteredCountries.map((countrie, i) => (
                 <CardCountrie
-                  i={i}
+                  key={i}
                   flags={countrie.flags.png}
                   name={countrie.name.common}
                   population={countrie.population}
                   region={countrie.region}
                   capitals={countrie.capital[0]}
-                  code={countrie.cca3}
+                  onClick={() => goTo(countrie.cca3)}
                 />
               ))
             )}
           </div>
-         )}
+        )}
       </div>
     </div>
   );
