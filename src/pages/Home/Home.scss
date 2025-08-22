@@ -54,6 +54,19 @@
           }
         }
       }
+
+      &__loading-component {
+        border: 1px solid;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(000, 0, 0, 0.6);
+      }
     }
 
     &__countrie-group {
@@ -62,6 +75,20 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
       gap: 8rem;
       justify-content: space-between;
+
+      &__error-handler{
+        grid-column: 1 / -1;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        p {
+          color: var(--textColor);
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
 
       &__countrie-item {
         height: 430px;

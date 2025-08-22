@@ -5,29 +5,51 @@ import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import FilterSelect from "../../components/FilterSelect/FilterSelect";
 import CardCountrie from "../../components/CardCountrie/CardCountrie";
+import { CircularProgress } from "@mui/material";
 
 export default function Home() {
-  const [countries, setCountries] = useState([]);
-  const [region, setRegion] = useState("");
-
-  const handleChange = (e) => {
-    setRegion(e.target.value);
-  };
-
   const getCountries = async () => {
     await api
       .get("/all?fields=name,capital,population,region,flags")
       .then((response) => setCountries(response.data));
   };
 
+  const getCountriesByRegion = async (region) => {
+    await api
+      .get(`/region/${region}?fields=name,capital,population,region,flags`)
+      .then((response) => setCountries(response.data));
+  };
+
+  const [countries, setCountries] = useState([]);
+  const [region, setRegion] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
+    setLoading(true);
     getCountries();
+    setLoading(false);
   }, []);
 
-  console.log(countries);
+  const filteredCountries = countries.filter((countrie) =>
+    countrie.name.common.toLowerCase().includes(search.toLowerCase())
+  );
+
+
+  console.log(filteredCountries);
+
+  const handleChange = (e) => {
+    setRegion(e.target.value);
+  };
 
   useEffect(() => {
-    console.log(region);
+    const formated_region = region.toLowerCase();
+
+    if (formated_region == "") {
+      getCountries();
+    } else {
+      getCountriesByRegion(formated_region);
+    }
   }, [region]);
 
   const regions = [
@@ -50,6 +72,8 @@ export default function Home() {
               type="text"
               className="input_search"
               placeholder="Search for a country"
+              value={search}
+              onChange={(ev) => setSearch(ev.target.value)}
             />
           </div>
           <div className="home__items__config__filter">
@@ -62,18 +86,30 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="home__items__countrie-group">
-          {countries.map((countrie, i) => (
-            <CardCountrie 
-              i={i}
-              flags={countrie.flags.png}
-              name={countrie.name.common}
-              population={countrie.population}
-              region={countrie.region}
-              capitals={countrie.capital}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <div className="home__items__config__loading-component">
+            <CircularProgress size="4rem" />
+          </div>
+        ) : (
+          <div className="home__items__countrie-group">
+            {filteredCountries.length == 0 ? (
+              <div className="home__items__countrie-group__error-handler">
+                <p>Countrie not found!</p>
+              </div>
+            ) : (
+              filteredCountries.map((countrie, i) => (
+                <CardCountrie
+                  i={i}
+                  flags={countrie.flags.png}
+                  name={countrie.name.common}
+                  population={countrie.population}
+                  region={countrie.region}
+                  capitals={countrie.capital}
+                />
+              ))
+            )}
+          </div>
+         )}
       </div>
     </div>
   );
