@@ -7,6 +7,7 @@ export default function CardCountrie({
   population,
   region,
   capitals,
+  code
 }) {
   return (
     <div className="home__items__countrie-group__countrie-item" key={i}>
@@ -28,9 +29,7 @@ export default function CardCountrie({
           </div>
           <div className="capital" style={{ display: "flex", gap: "5px" }}>
             <p style={{ fontWeight: "600" }}>Capital:</p>
-            {capitals.map((capital, i) => (
-              <p key={i}>{capital}</p>
-            ))}
+              <p>{capitals}</p>
           </div>
         </div>
       </div>

@@ -10,13 +10,13 @@ import { CircularProgress } from "@mui/material";
 export default function Home() {
   const getCountries = async () => {
     await api
-      .get("/all?fields=name,capital,population,region,flags")
+      .get("/all?fields=name,capital,population,region,flags,cca3")
       .then((response) => setCountries(response.data));
   };
 
   const getCountriesByRegion = async (region) => {
     await api
-      .get(`/region/${region}?fields=name,capital,population,region,flags`)
+      .get(`/region/${region}?fields=name,capital,population,region,flags,cca3`)
       .then((response) => setCountries(response.data));
   };
 
@@ -104,7 +104,8 @@ export default function Home() {
                   name={countrie.name.common}
                   population={countrie.population}
                   region={countrie.region}
-                  capitals={countrie.capital}
+                  capitals={countrie.capital[0]}
+                  code={countrie.cca3}
                 />
               ))
             )}
