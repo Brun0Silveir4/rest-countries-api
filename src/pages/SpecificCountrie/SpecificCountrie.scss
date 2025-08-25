@@ -1,50 +1,143 @@
 @import url("../../Theme.scss");
 
 .countrie {
-    min-height: 100vh;
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bg2);
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg2);
 
-    &__loading-component {
-        border: 1px solid;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(000, 0, 0, 0.6);
+  &__loading-component {
+    border: 1px solid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(000, 0, 0, 0.6);
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 0 auto;
+    min-height: 100%;
+    min-width: 100%;
+    padding: 80px;
+    color: var(--textColor);
+    flex-direction: column;
+
+    &__btn {
+      width: 135px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 34px;
+
+      &:hover {
+        border: 1px solid var(--textColor);
+        transition: 0.4s ease;
+      }
     }
 
-    &__content {
-        display: flex;
-        flex: 1 0 auto;
-        min-height: 100%;
-        min-width: 100%;
-        padding: 80px;
-        color: var(--textColor);
+    &__container {
+      margin-top: 75px;
+      display: flex;
+      gap: 15rem;
 
-        &__btn {
-            width: 135px;
-            height: 40px;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      &__image {
+        width: 560px;
+        height: 440px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        .countrie-flag {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &__texts {
+        width: 50%;
+        padding: 50px 0px 50px 0px;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        gap: 3rem;
+
+        &__title p {
+          font-weight: 600;
+          font-size: 24px;
+        }
+
+        &__values {
+          display: flex;
+          gap: 120px;
+          .first-half {
             display: flex;
-            justify-content: center;
-            cursor: pointer;
-            align-items: center;
-            gap: 8px;
-            padding: 20px 34px;
-            
-            &:hover{
-                border: 1px solid var(--textColor);
-                transition: 0.4s ease;
+            flex-direction: column;
+            gap: 6px;
+            &__element {
+              display: flex;
+              gap: 5px;
+
+              .bold {
+                font-weight: 600;
+              }
+            }
+          }
+
+          .second-half {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            &__element {
+              display: flex;
+              gap: 5px;
+
+              .bold {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+
+        &__borders{
+            display: flex;
+            gap: 15px;
+
+            .title-borders{
+                font-weight: 600;
+                text-wrap: nowrap;
+            }
+
+            &__border-group{
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(80px, 220px));
+                gap: 10px;
+                .border-item{
+                    width: 220px;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px;
+                    border-radius: 10px;
+                    background-color: var(--bg1);
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                }
+
             }
         }
+      }
     }
+  }
 }
