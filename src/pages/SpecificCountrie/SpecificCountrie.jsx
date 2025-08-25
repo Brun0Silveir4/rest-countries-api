@@ -20,6 +20,7 @@ export default function SpecificCountrie() {
       setCountrie(response.data);
     } catch (error) {
       console.error("Erro ao buscar país:", error);
+      goTo()
     } finally {
       setLoading(false);
     }
@@ -39,7 +40,7 @@ export default function SpecificCountrie() {
   let navigate = useNavigate();
 
   const goTo = () => {
-    navigate("/");
+    navigate('/');
   };
 
   useEffect(() => {
