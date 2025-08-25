@@ -73,8 +73,8 @@
       margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
-      gap: 8rem;
-      justify-content: space-between;
+      gap: 73px;
+      // justify-content: space-between;
 
       &__error-handler{
         grid-column: 1 / -1;
@@ -96,6 +96,13 @@
         border-radius: 10px;
         background-color: var(--bg1);
         box-shadow: var(--boxShadow);
+        border: 1px solid transparent;
+        cursor: pointer;
+        
+        &:hover{
+          border: 1px solid var(--textColor);
+          transition: 0.4s ease;
+        }
 
         &__flag {
           height: 218px;
