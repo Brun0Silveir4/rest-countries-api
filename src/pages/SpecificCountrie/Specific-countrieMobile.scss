@@ -1,12 +1,18 @@
-@media (min-width: 1670px) {
+@media (max-width: 1475px) {
   .countrie__content__container {
-    gap: 10rem;
+    gap: 4rem;
   }
 
   .countrie__content__container__image {
-    max-width: 600px;
+    // max-width: 460px;
+    // max-height: 340px;
+  }
 
-    max-height: auto;
+  .countrie-flag {
+    // width: 100%;
+    // height: 100%;
+    // max-width: 100%;
+    // object-fit: contain;
   }
 }
 
@@ -15,25 +21,22 @@
     gap: 5rem;
   }
 
-  .countrie__content__container__image {
-    max-width: 650px;
-  }
-
   .countrie__content__container__texts__values {
     gap: 60px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
   .countrie__content__container {
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
   }
 
   .countrie__content__container__image {
-    min-width: 90%;
-    max-height: none;
+    min-width: 60%;
+    min-height: auto;
+    // height: 0px;
     display: flex;
     justify-content: center;
   }
@@ -51,6 +54,12 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 940px) {
+  .countrie__content__container__image {
+    min-width: 80%;
   }
 }
 
@@ -74,6 +83,6 @@
   }
 
   .countrie__content__container__texts__borders__border-group {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
