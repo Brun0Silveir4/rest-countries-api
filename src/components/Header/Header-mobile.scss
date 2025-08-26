@@ -1,0 +1,26 @@
+@media (max-width: 480px) {
+    .header {
+        &__title p {
+            font-size: 16px;
+        }
+
+        &__theme {
+            gap: 8px;
+
+            &__icon .icon-theme {
+                font-size: 16px;
+            }
+
+            &__title p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 400px) {
+    .header {
+        padding: 30px 10px;
+    }
+}

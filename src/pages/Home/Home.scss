@@ -17,6 +17,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       &__search {
         position: relative;
         display: flex;
@@ -74,15 +75,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
       gap: 73px;
-      // justify-content: space-between;
 
-      &__error-handler{
+      &__error-handler {
         grid-column: 1 / -1;
         padding: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         p {
           color: var(--textColor);
           font-size: 20px;
@@ -91,21 +91,22 @@
       }
 
       &__countrie-item {
-        height: 430px;
-        width: 330px;
+        min-height: 430px;
+        max-width: 330px;
         border-radius: 10px;
         background-color: var(--bg1);
         box-shadow: var(--boxShadow);
         border: 1px solid transparent;
         cursor: pointer;
-        
-        &:hover{
+
+        &:hover {
           border: 1px solid var(--textColor);
           transition: 0.4s ease;
         }
 
         &__flag {
           height: 218px;
+
           .image {
             height: 100%;
             width: 100%;
@@ -114,14 +115,23 @@
             border-top-right-radius: 10px;
           }
         }
+
         &__text {
           gap: 20px;
           display: flex;
           flex-direction: column;
           padding: 35px 30px;
           color: var(--textColor);
+
+          .title p {
+            font-size: 20px;
+            font-weight: 700;
+          }
         }
       }
     }
   }
 }
+
+
+@import './Home-mobile.scss';

@@ -13,7 +13,7 @@ export default function Header() {
       </div>
       <div className="header__theme" onClick={toggleTheme}>
         <div className="header__theme__icon">
-          {theme == "dark" ? <LuMoon size={18} /> : <LuSun size={18} />}
+          {theme == "dark" ? <LuMoon className="icon-theme" /> : <LuSun className="icon-theme" />}
         </div>
         <div className="header__theme__title">
           {theme == "dark" ? <p>Dark Mode</p> : <p>Light Mode</p>}

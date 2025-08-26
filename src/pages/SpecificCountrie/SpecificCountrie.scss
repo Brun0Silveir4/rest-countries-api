@@ -80,10 +80,12 @@
         &__values {
           display: flex;
           gap: 120px;
+
           .first-half {
             display: flex;
             flex-direction: column;
             gap: 6px;
+
             &__element {
               display: flex;
               gap: 5px;
@@ -98,6 +100,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+
             &__element {
               display: flex;
               gap: 5px;
@@ -109,33 +112,34 @@
           }
         }
 
-        &__borders{
-            display: flex;
-            gap: 15px;
+        &__borders {
+          display: flex;
+          gap: 15px;
 
-            .title-borders{
-                font-weight: 600;
-                text-wrap: nowrap;
+          .title-borders {
+            font-weight: 600;
+            text-wrap: nowrap;
+          }
+
+          &__border-group {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 220px));
+            gap: 10px;
+
+            .border-item {
+              width: 220px;
+              text-align: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 15px;
+              border-radius: 10px;
+              background-color: var(--bg1);
+              box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
 
-            &__border-group{
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(80px, 220px));
-                gap: 10px;
-                .border-item{
-                    width: 220px;
-                    text-align: center;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 15px;
-                    border-radius: 10px;
-                    background-color: var(--bg1);
-                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-                }
-
-            }
+          }
         }
       }
     }
